@@ -80,3 +80,11 @@ y2 = 4
 
 distance = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
 print(distance)
+
+# Меняем местами значение двух переменных
+a = 100
+b = 200
+print(a, b)
+
+a, b = b, a
+print(a, b)
