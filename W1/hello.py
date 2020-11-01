@@ -116,3 +116,20 @@ print(not y)
 x, y, z = True, False, True
 result = x and y or z
 print(result)
+
+x = 12
+y = False
+print(x or y)
+
+x = 12
+z = "BOOM"
+print(x and z)
+
+# Задача: определить високосный год или нет?
+# Год является високосным, если он кратен 4, но при этом не кратен 100, либо кратен 400
+year = 2020
+is_leap = year % 4 == 0 and (year % 100 != 0 or year % 400 == 0)
+print(is_leap)
+# или еще короче
+import calendar
+print(calendar.isleap(2020))
