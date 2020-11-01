@@ -231,8 +231,8 @@ print(f"{num:.3f}")
 # 0.667
 
 # Встроенная функция input()
-name = input("Введите свое имя: ")
-print(f"Привет, {name}!")
+# name = input("Введите свое имя: ")
+# print(f"Привет, {name}!")
 
 # Байтовые строки (bytes)
 example_bytes = b"hello"
@@ -247,3 +247,124 @@ print(example_string)
 encoded_string = example_string.encode(encoding="utf-8")
 print(encoded_string)
 print(type(encoded_string))
+
+# NONE
+bool(None)
+# False
+
+answer = None
+if not answer:
+    print("Ответ не получен")
+
+# Пример, показывающий область применения
+income = 0
+if not income:
+    print("Ничего не заработали")
+
+income = None
+if income is None:
+    print("Еще не начали продавать")
+elif not income:
+    print("Ничего не заработали")
+
+
+# Конструкции управления потоком
+
+# if  - проверка условия
+company = "my.com"
+if "my" in company:
+    print("Условие выполнено!")
+
+company = "example.net"
+if "my" in company or company.endswith(".net"):
+    print("Условие выполнено!")
+
+# if - else
+company = "google.com"
+if "my" in company:
+    print("Условие выполнено!")
+else:
+    print("Условие не выполнено!")
+
+# if - elif - else
+company = "google.com"
+if "my" in company:
+    print("Подстрока my найдена!")
+elif "google" in company:
+    print("Подстрока google найдена!")
+else:
+    print("Подстрока не найдена!")
+
+# Тернарный оператор (аналог)
+score_1 = 5
+score_2 = 0
+winner = "Argentina" if score_1 > score_2 else "Jamaica"
+print(winner)
+
+# while
+i = 3
+while i >= 0:
+  i -= 1
+# выполнится 4 раза
+
+i = 0
+while i < 100:
+  i += 1
+print(i)
+
+# Цикл for, объект range
+name = "Alex"
+for letter in name:
+    print(letter)
+
+for i in range(3):
+    print(i)
+
+result = 0
+for i in range(101):
+    result += i
+print(result)
+
+for i in range(5, 8):
+    print(i)
+# 567
+
+for i in range(1, 10, 2): # 2 - шаг
+    print(i)
+# 13579
+
+for i in range(10, 5, -1):
+    print(i)
+# 109876
+
+# pass - заглушка
+# break - выход из цикла досрочно
+result = 0
+while True:
+    result += 1
+    if result >= 100:
+        break
+print(result)
+# 100
+for i in range(10):
+    if i == 5:
+        break
+    print(i)
+# 01234
+
+# continue - переход к следующей итерации
+result = 0
+for i in range(10):
+    if i % 2 != 0: # сумма четных чисел
+        continue
+    result += i
+print(result)
+# 20
+
+# Бесконечные циклы:
+# 1
+while True:
+  continue
+# 2
+while True:
+  pass
