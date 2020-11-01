@@ -209,3 +209,23 @@ for letter in example_string:
 template = "%s - главное достоинство программистаю (%s)"
 template % ("Лень", "Larry Wall")
 # 'Лень - главное достоинство программистаю (Larry Wall)'
+"{} не лгут, но {} пользуются формулами. ({})".format(
+    "Цифры", "лжецы", "Robert A. Heinlein"
+)
+# 'Цифры не лгут, но лжецы пользуются формулами. (Robert A. Heinlein)'
+
+# И еще f-строки
+subject = "оптимизация"
+autor = "Donald Knuth"
+f"Преждевременная {subject} - корень всех зол. ({autor})"
+# 'Преждевременная оптимизация - корень всех зол. (Donald Knuth)'
+
+# Модификаторы форматирования:
+num = 8
+print(f"Binary: {num:#b}")
+# 'Binary: 0b1000'
+num = 2/3
+print(num)
+print(f"{num:.3f}")
+# 0.6666666666666666
+# 0.667
