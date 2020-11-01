@@ -137,10 +137,75 @@ print(calendar.isleap(2020))
 # БАЗОВЫЕ ТИПЫ
 # Строки (str)
 
-exemple_string = "Курс по Python на Coursea"
-print(exemple_string)
-print(type(exemple_string))
-exemple_string = 'Курс по "Python" на "Coursea"'
-print(exemple_string)
-exemple_string = "Курс по \"Python\" на \"Coursea\""
-print(exemple_string)
+example_string = "Курс по Python на Coursea"
+print(example_string)
+print(type(example_string))
+example_string = 'Курс по "Python" на "Coursea"'
+print(example_string)
+example_string = "Курс по \"Python\" на \"Coursea\""
+print(example_string)
+example_string = "Файл на диске c:\\\\"
+print(example_string)
+example_string = r"Файл на диске c:\\"
+print(example_string)
+example_string = "Perl - это язык, который одинаково " \
+                "выглядет как до, так и после RSA шифрования." \
+                "(Keith Bostic)"
+print(example_string)
+
+example_string = """
+Есть всего два типа языков программирования: те, на которые
+люди все время ругаются, и те, которые никто не использует.
+
+Bjarne Stroustrup
+"""
+print(example_string)
+
+"Можно просто " + "складывать строки"
+"Даже умножать!" * 3
+
+# Строки неизменяемые (при изменении создается новый объект
+example_string = "Привет"
+print(id(example_string))
+example_string = ", Мир!"
+print(id(example_string))
+
+# Срезы строк
+example_string = "Курс про Python на Coursea"
+print(example_string[9:])
+
+example_string = "Курс про Python на Coursea"
+print(example_string[9:15])
+
+example_string = "Курс про Python на Coursea"
+print(example_string[-8:])
+
+example_string = "0123456789"
+print(example_string[::2])
+
+example_string = "Москва"
+print(example_string[::-1])
+
+quote = """Болтовня ничего не стоит. Покажите мне код. 
+Linus Torvalds
+"""
+print(quote.count("о"))
+
+"москва".capitalize()
+"2020".isdigit()
+
+# Оператор in позволяет проверить наличие подстроки в строке:
+"3.14" in "Число Пи = 3,1415926"
+# True
+"Алексей" in "Александр Пушкин"
+# False
+
+# Итерация по строке
+example_string = "Привет"
+for letter in example_string:
+    print("Буква", letter)
+
+# Форматирование строк
+template = "%s - главное достоинство программистаю (%s)"
+template % ("Лень", "Larry Wall")
+# 'Лень - главное достоинство программистаю (Larry Wall)'
