@@ -233,3 +233,17 @@ print(f"{num:.3f}")
 # Встроенная функция input()
 name = input("Введите свое имя: ")
 print(f"Привет, {name}!")
+
+# Байтовые строки (bytes)
+example_bytes = b"hello"
+print(type(example_bytes))
+
+for element in example_bytes:
+    print(element)
+
+example_string = "привет"
+print(type(example_string))
+print(example_string)
+encoded_string = example_string.encode(encoding="utf-8")
+print(encoded_string)
+print(type(encoded_string))
