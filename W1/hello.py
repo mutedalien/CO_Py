@@ -101,3 +101,18 @@ print(3 < 5)
 
 x = 2
 print(1 < x < 3)
+
+# Логические выражения
+x, y = True, False
+print(x and y)
+
+x, y = True, False
+print(x or y)
+
+y = False
+print(not y)
+
+# Составные логические выражения
+x, y, z = True, False, True
+result = x and y or z
+print(result)
