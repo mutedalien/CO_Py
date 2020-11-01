@@ -133,3 +133,14 @@ print(is_leap)
 # или еще короче
 import calendar
 print(calendar.isleap(2020))
+
+# БАЗОВЫЕ ТИПЫ
+# Строки (str)
+
+exemple_string = "Курс по Python на Coursea"
+print(exemple_string)
+print(type(exemple_string))
+exemple_string = 'Курс по "Python" на "Coursea"'
+print(exemple_string)
+exemple_string = "Курс по \"Python\" на \"Coursea\""
+print(exemple_string)
