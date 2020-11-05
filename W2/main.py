@@ -104,10 +104,34 @@ print(numbers)
 print(sorted(numbers, reverse=True))
 numbers.sort(reverse=True)
 print(numbers)
+print(reversed(numbers))
+print(list(reversed(numbers)))
 """
-[6, 20, 18, 17, 12, 4, 10, 4, 18, 20]
-[4, 4, 6, 10, 12, 17, 18, 18, 20, 20]
-[6, 20, 18, 17, 12, 4, 10, 4, 18, 20]
-[20, 20, 18, 18, 17, 12, 10, 6, 4, 4]
-[20, 20, 18, 18, 17, 12, 10, 6, 4, 4]
+[2, 12, 16, 2, 11, 7, 12, 12, 14, 19]
+[2, 2, 7, 11, 12, 12, 12, 14, 16, 19]
+[2, 12, 16, 2, 11, 7, 12, 12, 14, 19]
+[19, 16, 14, 12, 12, 12, 11, 7, 2, 2]
+[19, 16, 14, 12, 12, 12, 11, 7, 2, 2]
+<list_reverseiterator object at 0x000001AE31458F40>
+[2, 2, 7, 11, 12, 12, 12, 14, 16, 19]
 """
+
+# КОРТЕЖИ
+
+# empty_tuple = ()
+# empty_tuple = tuple()
+# immutables = (int, str, tuple)
+# immutables[0] = float
+# вернет ошибку, т.к. они не изменяемые!
+
+blink = ([], [])
+blink[0].append(0)
+print(blink)
+# ([0], [])
+print(hash(tuple()))
+# 5740354900026072187
+
+one_element_tuple = (1,)
+guess_what = (1)
+print(type(guess_what))
+# <class 'int'>
