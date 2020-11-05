@@ -45,17 +45,69 @@ range_list[:] is range_list
 collections = ['list', 'tuple', 'dict', 'set']
 for collection in collections:
     print('Learning {}...'.format(collection))
-"""""
+"""
 Learning list...
 Learning tuple...
 Learning dict...
 Learning set...
-"""""
+"""
 for idx, collection in enumerate(collections):
     print('#{} {}'.format(idx, collection))
-"""""
+"""
 #0 list
 #1 tuple
 #2 dict
 #3 set
-"""""
+"""
+
+# ДОБАВЛЕНИЕ И УДАЛЕНИЕ ЭЛЕМЕНТОВ
+
+collections.append('OrderedDict')
+print(collections)
+# ['list', 'tuple', 'dict', 'set', 'OrderedDict']
+collections.extend(['ponyset', 'unicorndict'])
+print(collections)
+# ['list', 'tuple', 'dict', 'set', 'OrderedDict', 'ponyset', 'unicorndict']
+collections += [None]
+print(collections)
+# ['list', 'tuple', 'dict', 'set', 'OrderedDict', 'ponyset', 'unicorndict', None]
+del collections[4]
+print(collections)
+# ['list', 'tuple', 'dict', 'set', 'ponyset', 'unicorndict', None]
+
+# min, max, sum
+
+numbers = [4, 17, 19, 9, 2, 6, 10, 13]
+print(min(numbers))
+# 2
+print(max(numbers))
+# 19
+print(sum(numbers))
+# 80
+
+# str.join
+
+tag_list = ['python', 'course', 'coursea']
+print(', '.join(tag_list))
+# python, course, coursea
+
+# СОРТИРОВКА
+
+import random
+
+numbers = []
+for _ in range(10):
+    numbers.append(random.randint(1, 20))
+print(numbers)
+print(sorted(numbers))
+print(numbers)
+print(sorted(numbers, reverse=True))
+numbers.sort(reverse=True)
+print(numbers)
+"""
+[6, 20, 18, 17, 12, 4, 10, 4, 18, 20]
+[4, 4, 6, 10, 12, 17, 18, 18, 20, 20]
+[6, 20, 18, 17, 12, 4, 10, 4, 18, 20]
+[20, 20, 18, 18, 17, 12, 10, 6, 4, 4]
+[20, 20, 18, 18, 17, 12, 10, 6, 4, 4]
+"""
