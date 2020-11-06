@@ -77,3 +77,41 @@ print(hier('brother'))
 print(helloer('sir'))
 # Hi, brother!
 # Hello, sir!
+
+square_list = []
+for number in range(10):
+    square_list.append(number ** 2)
+print(square_list)
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+square_list = [number ** 2 for number in range(10)]
+print(square_list)
+# [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+even_list = [num for num in range(10) if num % 2 == 0]
+print(even_list)
+# [0, 2, 4, 6, 8]
+
+square_map = {number: number ** 2 for number in range(5)}
+print(square_map)
+# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+reminders_set = {num % 10 for num in range(100)}
+print(reminders_set)
+# {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+print(type(number ** 2 for number in range(5)))
+# <class 'generator'>
+
+num_list = range(7)
+squared_list = [x ** 2 for x in num_list]
+print(list(zip(num_list, squared_list)))
+# [(0, 0), (1, 1), (2, 4), (3, 9), (4, 16), (5, 25), (6, 36)]
+
+list(zip(
+  filter(bool, range(3)),
+  [x for x in range(3) if x]
+))
+print(list)
+# <class 'list'>
+# [(1, 1), (2, 2)]
