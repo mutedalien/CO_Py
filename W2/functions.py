@@ -57,3 +57,45 @@ print(append_one())
 # [1, 1]
 print(append_one.__defaults__)
 # ([1, 1],)
+
+# звездочки
+
+def printer(*args):
+    print(type(args))
+    for argument in args:
+        print(argument)
+printer(1, 2, 3, 4, 5)
+# <class 'tuple'>
+# 1
+# 2
+# 3
+# 4
+# 5
+
+name_list = ['John', 'Bill', 'Amy']
+printer(*name_list)
+# <class 'tuple'>
+# John
+# Bill
+# Amy
+
+def printer(**kwards):
+    print(type(kwards))
+    for key, value in kwards.items():
+        print('{}: {}'.format(key, values))
+printer(a=10, b=11)
+# <class 'dict'>
+# a: [1, 2, 3, 4, 5, 6]
+# b: [1, 2, 3, 4, 5, 6]
+
+payload = {
+    'user_id': 117,
+    'feedback': {
+        'subject': 'Registration fields',
+        'message': 'There is no country for old men'
+    }
+}
+printer(**payload)
+# <class 'dict'>
+# user_id: [1, 2, 3, 4, 5, 6]
+# feedback: [1, 2, 3, 4, 5, 6]
