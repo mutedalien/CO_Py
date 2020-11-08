@@ -101,3 +101,89 @@ print(event)
 # Event "открытие чемпионата мира по футболу" at 2018-06-14
 print(dict.fromkeys("12345"))
 # {'1': None, '2': None, '3': None, '4': None, '5': None}
+
+# Статический метод класса (@staticmethod)
+
+class Human:
+
+    def __init__(self, name, age=0):
+        self.name = name
+        self.age = age
+
+    @staticmethod
+    def is_age_valid(age):
+        return 0 < age < 150
+# можно обращаться от имени класса
+print(Human.is_age_valid(35))
+# True
+# или от экземпляра:
+human = Human("Old Bobby")
+print(human.is_age_valid(234))
+# False
+
+# Вычисляемые свойства класса (property)
+
+class Robot:
+
+    def __init__(self, power):
+        self.power = power
+wall_e = Robot(100)
+wall_e.power = 200
+print(wall_e.power)
+# 200
+
+class Robot:
+
+    def __init__(self, power):
+        self.power = power
+
+    def set_power(self, power):
+        if power < 0:
+            self.power = 0
+        else:
+            self.power = power
+wall_e = Robot(100)
+wall_e.set_power(-20)
+print(wall_e.power)
+# 0
+
+class Robot:
+
+    def __init__(self, power):
+        self._power = power
+
+    power = property()
+
+    @power.setter
+    def power(self, value):
+        if value < 0:
+            self._power = 0
+        else:
+            self._power = value
+
+    @power.getter
+    def power(self):
+        return self._power
+
+    @power.deleter
+    def power(self):
+        print("make robot useless")
+        del self._power
+
+
+wall_e = Robot(100)
+wall_e.power = -20
+print(wall_e.power)
+# 0
+
+class Robot:
+    def __init__(self, power):
+        self._power = power
+
+    @property
+    def power(self):
+        # здесь могут быть любые полезные вычисления
+        return self._power
+wall_e = Robot(200)
+print(wall_e.power)
+# 200
