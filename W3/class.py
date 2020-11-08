@@ -95,3 +95,67 @@ for name in planet_names:
 
 print(solar_system)
 # [Planet Mercury, Planet Venus, Planet Earth, Planet Mars, Planet Jupiter, Planet Saturn, Planet Uranus, Planet Neptune]
+
+# Работа с атрибутами экземпляра
+
+mars = Planet("Mars")
+print(mars)
+# Planet Mars
+
+mars.name = "Second Earth?"
+print(mars.name)
+# Second Earth?
+
+# Атрибуты класса
+
+class Planet:
+    count = 0
+
+    def __init__(self, name, population=None):
+        self.name = name
+        self.population = population or []
+        Planet.count += 1
+earth = Planet("Earth")
+mars = Planet("Mars")
+
+print(Planet.count)
+# 2
+print(mars.count)
+# 2
+
+# Деструктор экземпляра класса
+
+class Human:
+
+    def __del__(self):
+        print("Goodbye!")
+human = Human()
+# в данном случае деструктор отработает - но все же
+# лучше создать метод и вызывать его явно
+del human
+# Goodbye!
+
+# Словарь экземпляра и класса
+
+class Planet:
+    """This class describes planets"""
+
+    count = 1
+    def __init__(self, name, population=None):
+        self.name = name
+        self.population = population or []
+planet = Planet("Earth")
+print(planet.__dict__)
+# {'name': 'Earth', 'population': []}
+planet.mass = 5.97e24
+print(planet.__dict__)
+# {'name': 'Earth', 'population': [], 'mass': 5.97e+24}
+print(Planet.__dict__)
+# {'__module__': '__main__', '__doc__': 'This class describes planets', 'count': 1,
+# '__init__': <function Planet.__init__ at 0x000001C86C8ED280>, '__dict__': <attribute
+# '__dict__' of 'Planet' objects>, '__weakref__': <attribute '__weakref__' of 'Planet' objects>}
+print(dir(planet))
+# ['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__',
+# '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
+# '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__',
+# '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'count', 'mass', 'name', 'population']
