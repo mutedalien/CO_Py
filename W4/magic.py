@@ -144,3 +144,78 @@ obj = Polite()
 obj.attr = 10
 del obj.attr
 # Goodbye attr, you were 10!
+
+# __call__
+
+class Logger:
+    def __init__(self, filename):
+        self.filename = filename
+
+    def __call__(self, func):
+        with open(self.filename, 'w') as f:
+            f.write('Oh Danny boy...')
+        return func
+
+
+logger = Logger('log.txt')
+
+
+@logger
+def completely_useless_function():
+    pass
+
+
+completely_useless_function()
+
+with open('log.txt') as f:
+    print(f.read())
+# Oh Danny boy...
+
+# __add__
+
+import random
+
+
+class NoisyInt:
+    def __init__(self, value):
+        self.value = value
+
+    def __add__(self, obj):
+        noise = random.uniform(-1, 1)
+        return self.value + obj.value + noise
+
+
+a = NoisyInt(10)
+b = NoisyInt(20)
+for _ in range(3):
+    print(a + b)
+# 30.605646527205856
+# 30.170967742734117
+# 29.071231797981817
+
+
+# Написать свой контейнер с помощью __getitem__, __setitem__
+
+class PascalList:
+    def __init__(self, original_list=None):
+        self.container = original_list or []
+
+    def __getitem__(self, index):
+        return self.container[index - 1]
+
+    def __setitem__(self, index, value):
+        self.container[index - 1] = value
+
+    def __str__(self):
+        return self.container.__str__()
+
+
+numbers = PascalList([1, 2, 3, 4, 5])
+
+print(numbers[1])
+# 1
+
+numbers[5] = 25
+
+print(numbers)
+# [1, 2, 3, 4, 25]
