@@ -42,3 +42,30 @@ import contextlib
 
 with contextlib.suppress(ValueError):
     raise ValueError
+
+# Пример на контекстные менеджеры
+
+import time
+
+
+class timer():
+    def __init__(self):
+        self.start = time.time()
+
+    def current_time(self):
+        return time.time() - self.start
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *args):
+        print('Elapsed: {}'.format(self.current_time()))
+
+
+with timer() as t:
+    time.sleep(1)
+    print('Current: {}'.format(t.current_time()))
+    time.sleep(1)
+
+# Current: 1.0018980503082275
+# Elapsed: 2.006608009338379
