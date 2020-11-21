@@ -85,7 +85,7 @@ print(Base.__subclasses__())
 
 # Абстрактные методы
 
-    from abc import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod
 
 
 class Sender(metaclass=ABCMeta):
@@ -105,9 +105,7 @@ class Child(Sender):
 
 
 Child()
-< __main__.Child
-at
-0x110cfa860 >
+# < __main__.Child at 0x110cfa860 >
 
 
 class PythonWay:
