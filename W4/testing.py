@@ -100,6 +100,5 @@ class TestAsteroid(unittest.TestCase):
 
 print(f'Date: {apophis.closest_approach["date"]}')
 print(f'Distance: {apophis.closest_approach["distance"]:.2} LD')
-Date: 2029 - 04 - 13
-Distance: 0.099
-LD
+# Date: 2029 - 04 - 13
+# Distance: 0.099 LD
