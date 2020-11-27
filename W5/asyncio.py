@@ -83,3 +83,88 @@ def my_range_generator(top):
 # 1
 # 2
 
+# Сопрограммы, генерация исключений
+
+def grep(pattern):
+    print("start grep")
+    try:
+        while True:
+            line = yield
+            if pattern in line:
+                print(line)
+    except GeneratorExit:
+        print("stop grep")
+
+# >>> g = grep("python")
+# >>> next(g) # g.send(None)
+# >>> g.send("python is the best!")
+# >>> g.throw(RuntimeError, "something wrong")
+# Traceback (most recent call last):
+#   File "<stdin>", line 1, in <module>
+# RuntimeError: something wrong
+
+# Вызовы сопрограмм, PEP 380
+
+def grep(pattern):
+    print("start grep")
+    while True:
+        line = yield
+        if pattern in line:
+            print(line)
+
+def grep_python_coroutine():
+    g = grep("python")
+    next(g)
+    g.send("python is the best!")
+    g.close()
+
+# >>> g = grep_python_coroutine()  # is g coroutine?
+# start grep
+# python is the best!
+# >>> g
+# >>>
+
+# Сопрограммы, yield from PEP 0380
+
+def grep(pattern):
+    print("start grep")
+    while True:
+        line = yield
+        if pattern in line:
+            print(line)
+
+def grep_python_coroutine():
+    g = grep("python")
+    yield from g
+
+# >>> g = grep_python_coroutine()  # is g coroutine?
+# >>> g
+# <generator object grep_python_coroutine at 0x7f027eec03b8>
+# >>> g.send(None)
+# start grep
+# >>> g.send("python wow!")
+# python wow!
+
+# PEP 380, генераторы
+
+def chain(x_iterable, y_iterable):
+    yield from x_iterable
+    yield from y_iterable
+
+
+def the_same_chain(x_iterable, y_iterable):
+    for x in x_iterable:
+        yield x
+
+    for y in y_iterable:
+        yield y
+
+# >>> a = [1, 2, 3]
+# >>> b = (4, 5)
+# >>> for x in chain(a, b):
+# ...    print(x)
+# 1
+# 2
+# 3
+# 4
+# 5
