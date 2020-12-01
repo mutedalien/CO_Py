@@ -43,3 +43,14 @@ def _main():
 
 if __name__ == "__main__":
     _main()
+
+# [{'date': datetime.datetime(2017, 9, 5, 0, 0), 'high_temp': 18},
+#  {'date': datetime.datetime(2017, 9, 6, 0, 0), 'high_temp': 28},
+#  {'date': datetime.datetime(2017, 9, 7, 0, 0), 'high_temp': 33},
+#  {'date': datetime.datetime(2017, 9, 8, 0, 0), 'high_temp': 33},
+#  {'date': datetime.datetime(2017, 9, 9, 0, 0), 'high_temp': 34},
+#  {'date': datetime.datetime(2017, 9, 10, 0, 0), 'high_temp': 30},
+#  {'date': datetime.datetime(2017, 9, 11, 0, 0), 'high_temp': 22},
+#  {'date': datetime.datetime(2017, 9, 12, 0, 0), 'high_temp': 18},
+#  {'date': datetime.datetime(2017, 9, 13, 0, 0), 'high_temp': 23},
+#  {'date': datetime.datetime(2017, 9, 14, 0, 0), 'high_temp': 26}]
